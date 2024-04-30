@@ -42,7 +42,7 @@ public class PhotoCollage{
 
         //Merge images based on columns and rows
         int WIDTH = 2048;
-        int HEIGHT = 3072;
+        int HEIGHT = 1860 ; //Numbers works for 4 rows, 2 cols
         int widthPerImg = WIDTH/columns;
         int heightPerImg = HEIGHT/rows;
 
@@ -62,10 +62,12 @@ public class PhotoCollage{
         Graphics2D g = collage.createGraphics();
 
         //Draw images onto collage based on rows and height
+        int temp = 0;
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
-                BufferedImage img = images.get(i+j);
+                BufferedImage img = images.get(temp);
                 g.drawImage(img, j * widthPerImg, i * heightPerImg, null);
+                temp++;
             }
         }
  
